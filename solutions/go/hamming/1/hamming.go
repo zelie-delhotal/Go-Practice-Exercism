@@ -1,0 +1,18 @@
+package hamming
+
+import (
+    "errors"
+)
+
+func Distance(a, b string) (int, error) {
+	if len(a) != len(b) {
+        return 0, errors.New("DNA strands must be the same length")
+    }
+    var diff int
+    for i := range a {
+        if a[i] != b[i] {
+            diff++
+        }
+    }
+    return diff, nil
+}
